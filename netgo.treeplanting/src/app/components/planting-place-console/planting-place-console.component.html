@@ -1,0 +1,71 @@
+<div class="loader" *ngIf="(loading$|async)" style="z-index: 2;">
+    <mat-spinner class="custom-spinner"></mat-spinner>
+    <h1>
+        Es wird alles für Sie vorbereitet...
+    </h1>
+</div>
+
+
+<div class="row mt-8" style="z-index: 1;">
+    <div class="col-md-8 m-auto">
+        <div class="card card-body ">
+            <h1 class="text-center">Plantingplace Console</h1>
+            <div class="card card-body">
+                <div class="text-center" style="width: 250px;">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Filter</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+                        <mat-icon matSuffix>search</mat-icon>
+                        <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+                </div>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-icon matTooltip="{{element.id}}">face</mat-icon>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="pictures">
+                        <th mat-header-cell *matHeaderCellDef> Pictures </th>
+                        <td mat-cell *matCellDef="let element"><img src="{{element.image}}" height="50px" width="50px">
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="description">
+                        <th mat-header-cell *matHeaderCellDef> Description </th>
+                        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="xCoordinate">
+                        <th mat-header-cell *matHeaderCellDef> X Coordinate </th>
+                        <td mat-cell *matCellDef="let element"> {{element.xCoordinate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="yCoordinate">
+                        <th mat-header-cell *matHeaderCellDef> Y Coordinate </th>
+                        <td mat-cell *matCellDef="let element"> {{element.yCoordinate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="seedling">
+                        <th mat-header-cell *matHeaderCellDef> Seedling </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-icon matTooltip="{{element.seedlingId}}">nature</mat-icon>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="plantingArea">
+                        <th mat-header-cell *matHeaderCellDef> PlantingArea</th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-icon matTooltip="{{element.plantingAreaId}}">nature</mat-icon>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

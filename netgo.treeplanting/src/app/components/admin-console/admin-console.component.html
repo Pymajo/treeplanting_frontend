@@ -1,0 +1,72 @@
+<div class="loader" *ngIf="(loading$|async)" style="z-index: 2;">
+    <mat-spinner class="custom-spinner"></mat-spinner>
+    <h1>
+        Es wird alles für Sie vorbereitet...
+    </h1>
+</div>
+
+<div style="z-index: 1;">
+    <div class="col-md-8 m-auto">
+        <div class="card card-body ">
+            <h1 class="text-center">Admin Console</h1>
+            <div class="card card-body">
+                <div class="text-center" style="width: 250px;">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Filter</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+                        <mat-icon matSuffix>search</mat-icon>
+                    </mat-form-field>
+                </div>
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-icon matTooltip="{{element.id}}">face</mat-icon>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="registered">
+                        <th mat-header-cell *matHeaderCellDef> Registered </th>
+                        <td mat-cell *matCellDef="let element"> {{element.emailRegistered}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="permissions">
+                        <th mat-header-cell *matHeaderCellDef> Permissions </th>
+                        <td mat-cell *matCellDef=" let element">
+                            <mat-button-toggle-group multiple [value]="selectedVal">
+                                <mat-button-toggle value="admin" [checked]="element.isAdmin" class="btn-primary"
+                                    (click)="changeAdmin(element.id)">Admin
+                                </mat-button-toggle>
+                                <mat-button-toggle value="treecoins" [checked]="element.treecoinsDeterminer"
+                                    class="btn-primary" (click)="changeTreecoins(element.id)">
+                                    Treecoin-Manager
+                                </mat-button-toggle>
+                                <mat-button-toggle value="plantingOfficer" [checked]="element.plantingOfficer"
+                                    class="btn-primary" (click)="changePlantingOfficer(element.id)">
+                                    Planting-Officer
+                                </mat-button-toggle>
+                                <mat-button-toggle value="pollManager" [checked]="element.pollManager"
+                                    class="btn-primary" (click)="changePollManager(element.id)">Poll-Manager
+                                </mat-button-toggle>
+                                <mat-button-toggle value="seedlingsManager" [checked]="element.seedlingsManager"
+                                    class="btn-primary" (click)="changeSeedlingsManager(element.id)">Seedlings-Manager
+                                </mat-button-toggle>
+                            </mat-button-toggle-group>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

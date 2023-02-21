@@ -1,0 +1,14 @@
+.btn-primary:hover {
+    color: #fff;
+    background-color: #35b900;
+    border-color: #35b900;
+}
+
+input:invalid {
+    Border-color: red;
+}
+
+/*Eine korrekte Eingabe:*/
+input:valid {
+    Border-color: green;
+}

@@ -1,0 +1,107 @@
+/* Structure */
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+mat-primary {
+    color: #16b51b;
+}
+
+section {
+    display: table;
+}
+
+.example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+}
+
+.example-button-row {
+    display: table-cell;
+    width: 490px;
+}
+
+.example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+}
+
+.mat-success {
+    background-color: rgb(21, 159, 21);
+    color: #fff;
+}
+
+.mat-button-toggle-checked {
+    background-color: rgb(21, 159, 21);
+    color: rgba(255, 255, 255, .7);
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+    padding: 5px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.overlay {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.286);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+
+.loader {
+    z-index: 2;
+    position: absolute;
+    top: 0px;
+    background-color: #7d807d83;
+    text-align: -webkit-center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+}
+
+:host ::ng-deep .custom-spinner circle {
+    stroke: #16b51b;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #35b900;
+    border-color: #35b900;
+}

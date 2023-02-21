@@ -1,0 +1,8 @@
+input:invalid {
+    Border-color: red;
+}
+
+/*Eine korrekte Eingabe:*/
+input:valid {
+    Border-color: rgba(0, 114, 143, 0.613);
+}

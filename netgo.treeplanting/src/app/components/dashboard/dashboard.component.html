@@ -1,0 +1,84 @@
+<div class="loader" *ngIf="(loading$|async)" style="z-index: 2;">
+    <mat-spinner class="custom-spinner"></mat-spinner>
+    <h1>
+        Es wird alles für Sie vorbereitet...
+    </h1>
+</div>
+
+<div style="flex-direction: row; box-sizing: border-box; display: flex; place-content: space-evenly;
+    align-items: flex-start;
+    border-style: groove;">
+    <div *ngIf="treecoinsDeterminer">
+        <button (click)="treecoinsDeterminerConsole(user.id)">
+            <img src="/assets/seedlingcoin.png" height="50px" width="50px">
+        </button>
+    </div>
+    <div *ngIf="isAdmin">
+        <button (click)="adminConsole(user.id)">
+            <img src="/assets/admin-logo.png" height="50px" width="50px">
+        </button>
+    </div>
+    <div *ngIf="seedlingsManager">
+        <button (click)="seedlingsManagerConsole(user.id)">
+            <img src="/assets/oak.png" height="50px" width="50px">
+        </button>
+    </div>
+    <div *ngIf="plantingOfficer">
+        <div>
+            <button (click)="plantingPlaceConsole(user.id)">
+                <img src="/assets/plantplace.png" height="50px" width="50px">
+            </button>
+        </div>
+    </div>
+</div>
+<div>
+    <div style="flex-direction: row; box-sizing: border-box; display: flex; place-content: space-evenly;
+    align-items: flex-start;
+    border-style: groove;">
+        <div>
+            <mat-tab-group>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon class="example-tab-icon">nature</mat-icon>
+                        Aktuelle Setzlinge
+                    </ng-template>
+                    <h1>
+                        {{seedlingsLenght}}
+                    </h1>
+                </mat-tab>
+
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon class="example-tab-icon">poll</mat-icon>
+                        Aktuelle Abstimmungen
+                    </ng-template>
+                    <h1></h1>
+                </mat-tab>
+
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon class="example-tab-icon">attach_money</mat-icon>
+                        Ihre Treecoins
+                    </ng-template>
+                    <h1>
+                        {{user.treecoins}}
+                    </h1>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
+
+<div>
+    <carousel [height]="450">
+        <div class="carousel-cell">
+            <img class="test" src="assets/netgo_bochum.png" height="350px" width="350px">
+        </div>
+        <div class="carousel-cell">
+            <img class="test" src="assets/basecamp.png" height="350px" width="350px">
+        </div>
+        <div class="carousel-cell">
+            <img class="test" src="/assets/djben.jpeg" height="350px" width="350px">
+        </div>
+    </carousel>
+</div>

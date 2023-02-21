@@ -1,0 +1,38 @@
+.example-tab-icon {
+    margin-right: 8px;
+}
+
+:host ::ng-deep .mat-tab-label .mat-tab-label-content {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    color: green;
+}
+
+:host ::ng-deep .mat-tab-body-content {
+    text-align: center;
+}
+
+:host ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: green;
+}
+
+.test {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.carousel {
+    padding-top: 100px;
+
+}
+
+:host ::ng-deep .carousel-arrow carousel-arrow-prev {
+    color: green;
+}

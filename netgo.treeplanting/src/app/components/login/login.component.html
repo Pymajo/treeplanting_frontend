@@ -1,0 +1,29 @@
+<div class="col-md-6 m-auto">
+  <div class="card card-body">
+    <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Einloggen</h1>
+    <form action="/users/login" method="POST">
+      <div class="form-group mb-1">
+        <form action="#.ext" [formGroup]="reactiveForm">
+          <label for="email">Email</label>
+          <input required type="text" id="email" name="email" pattern="[\w\W]{1,}[@]{1,}\w{1,}[.]{1,}\w{1,}"
+            placeholder="Email eingeben *" title="Eine echte E-mail angeben" class="form-control"
+            formControlName="email">
+        </form>
+      </div>
+      <div class="form-group mb-3">
+        <form action="#.ext" [formGroup]="reactiveForm">
+          <label for="password">Passwort </label>
+          <input required type="password" id="password" name="password"
+            pattern="(?=.{8,}$)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).*" placeholder="Password *"
+            title="Passwort muss mindestens 8 Zeichen lang sein und muss Großbuchstaben, Kleinbuchstaben, Zahlen und Sonderzeichen enthalten!"
+            class="form-control" formControlName="password">
+        </form>
+      </div>
+      <button (click)="loginUser()" type="submit" class="btn btn-primary btn-block"
+        [disabled]="reactiveForm.invalid">Einloggen</button>
+    </form>
+    <p class="lead mt-4">
+      Keinen Account? <a routerLink="/register">Registrieren</a>
+    </p>
+  </div>
+</div>
